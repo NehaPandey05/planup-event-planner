@@ -1,0 +1,53 @@
+body { font-family: Arial, sans-serif; background: #eee; }
+.login-card, .profile-card {
+  background: #fff; padding: 32px 24px; border-radius: 12px; max-width: 350px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.09); margin: 80px auto;
+}
+.login-card h2, .profile-card h2 { margin-bottom: 20px; }
+.login-card input, .profile-card input {
+  width: 100%; padding: 12px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc;
+}
+.login-card button, .profile-card .btn-logout {
+  padding:12px; width:100%; background:#7b47f1; border:none; border-radius:6px; color:white;
+  font-size:1.1em; margin:12px 0;
+}
+.error { color: #e74c3c; margin-top:10px; text-align: center; }
+.field { margin-bottom:10px; }
+#qrSection {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 28px 28px 20px 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  z-index: 9999;
+  display: none;
+  min-width: 260px;
+  text-align: center;
+}
+#qrSection h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+#qrImage {
+  margin: 0 auto 12px auto;
+  display: block;
+}
+#upiLinkText {
+  font-size: 0.98em;
+  margin-bottom: 8px;
+  color: #222;
+}
+#closeQrBtn {
+  padding: 9px 26px;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 12px;
+}
+

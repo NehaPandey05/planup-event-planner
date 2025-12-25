@@ -1,0 +1,525 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #f8f9fb;
+  color: #23272f;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background: #1a2233;
+  color: #c5cae9;
+}
+body.dark-mode .top-header,
+body.dark-mode .events-section,
+body.dark-mode .volunteers-section,
+body.dark-mode .modal-content {
+  background: #232a39;
+  color: #c5cae9;
+}
+
+/* Header styles */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 13px 38px 10px 38px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  flex-wrap: wrap;
+}
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 2px;
+}
+.brand-main {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.brand-sub {
+  font-size: 1rem;
+  color: #0764e3;
+  font-weight: 500;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+nav a {
+  text-decoration: none;
+  color: #23272f;
+  font-weight: 500;
+  padding: 3px 16px;
+  border-radius: 8px;
+  transition: background 0.18s;
+  cursor: pointer;
+}
+nav a.nav-active,
+nav a:hover {
+  background: #e5f0ff;
+  color: #0764e3;
+  font-weight: 700;
+}
+.search-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+.search-profile input {
+  padding: 10px 22px;
+  border-radius: 15px;
+  border: 1.3px solid #e3e8f5;
+  outline: none;
+  font-size: 1rem;
+  min-width: 210px;
+  margin-right: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.search-profile input:focus {
+  border-color: #0764e3;
+  box-shadow: 0 0 0 2px #e5f0ff;
+}
+.profile-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.8rem;
+  user-select: none;
+}
+.profile-dropdown {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(20,60,120,0.11);
+  padding: 18px 16px 13px 16px;
+  min-width: 250px;
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.profile-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+}
+.profile-dropdown p {
+  margin: 0 0 5px 0;
+  font-weight: 700;
+  font-size: 1.17rem;
+  color: #25397a;
+  letter-spacing: 1px;
+}
+.profile-dropdown p.email {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #5e7bab;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.7px;
+}
+.profile-dropdown button {
+  font-size: 1.06rem;
+  border-radius: 8px;
+  border: 1.2px solid #e3e8f5;
+  padding: 9px 0;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+}
+.profile-dropdown .btn {
+  background: #eaf3ff;
+  color: #0764e3;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.profile-dropdown .btn:hover {
+  background: #d2e9ff;
+  color: #0a37a3;
+}
+.profile-dropdown .btn-danger {
+  background: #ed5151;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  margin-bottom: 0;
+}
+.profile-dropdown .btn-danger:hover {
+  background: #cc4444;
+}
+
+/* Events & Volunteers Sections */
+main {
+  padding: 20px 38px 60px 38px;
+}
+.events-section, .volunteers-section {
+  background: #fff;
+  padding: 48px 24px 32px 24px;
+  margin: 34px 0 0 0;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  position: relative;
+  display: none;
+}
+.show-section {
+  display: block !important;
+}
+.events-section h2, .volunteers-section h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #0764e3;
+  margin-bottom: 24px;
+}
+.events-list, .volunteers-list {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding-bottom: 22px;
+  scroll-behavior: smooth;
+  min-height: 220px;
+}
+.event-card, .volunteer-card {
+  background: #eaf3ff;
+  border-radius: 20px;
+  min-width: 220px;
+  max-width: 250px;
+  padding: 24px 16px;
+  box-shadow: 0 4px 18px rgba(40,80,160,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.event-card:hover, .volunteer-card:hover {
+  box-shadow: 0 10px 32px rgba(7,100,227,0.13);
+  transform: translateY(-4px);
+}
+.event-card h3, .volunteer-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #23272f;
+}
+.event-card p, .volunteer-card p {
+  font-size: 0.98rem;
+  margin-bottom: 6px;
+  color: #4b617c;
+}
+.scroll-arrow {
+  background: #fff;
+  color: #0764e3;
+  border: 2px solid #e5f0ff;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  width: 40px; height: 40px;
+  cursor: pointer;
+  position: absolute;
+  right: 14px; top: 35px;
+  box-shadow: 0 2px 12px rgba(80,120,220,0.12);
+  z-index: 1;
+  transition: background 0.15s,border 0.15s;
+}
+.scroll-arrow:hover {
+  background: #e5f0ff;
+  border: 2px solid #0764e3;
+}
+footer {
+  text-align: center;
+  margin: 40px 0 12px 0;
+  color: #7f86a7;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed; 
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.20);
+  display: none; 
+  align-items: center; 
+  justify-content: center;
+  z-index: 999;
+  overflow: auto;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 430px;
+  width: 95%;
+  box-shadow: 0 10px 32px rgba(8,80,190,0.13);
+  padding: 38px 30px 24px 30px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-height: 86vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  position: relative;
+}
+.close-btn {
+  position: absolute; right: 18px; top: 12px;
+  font-size: 28px; cursor: pointer;
+  color: #aaa;
+}
+.modal-content form input, 
+.modal-content form select, 
+.modal-content form textarea, 
+.modal-content label {
+  display: block; 
+  width: 100%; 
+  font-size: 1rem;
+  margin-bottom: 13px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  padding: 8px;
+  background: #f8fafe;
+  transition: border-color 0.2s;
+}
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #0764e3;
+  background: #eaf3ff;
+  outline: none;
+}
+.btn-submit {
+  margin-top: 10px;
+  font-size: 1.11rem;
+  background: #0764e3;
+  color: #fff;
+  border-radius: 14px;
+  border: none;
+  padding: 9px 0;
+  width: 100%;
+  box-shadow: 0 2px 14px rgba(14,100,227,0.10);
+  cursor: pointer;
+  transition: background 0.16s;
+}
+.btn-submit:hover {
+  background: #0a47be;
+}
+.btn-danger {
+  background-color: #ed5151;
+  color: white;
+  border: none;
+  padding: 9px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+}
+.btn-danger:hover {
+  background-color: #cc4444;
+}
+.event-badge {
+  display: inline-block;
+  font-size: 0.93rem;
+  font-weight: 700;
+  padding: 2px 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.free-badge {
+  background: #d9fbe0;
+  color: #248e41;
+}
+.paid-badge {
+  background: #fff0e0;
+  color: #f57308;
+}
+.qr-area {
+  text-align: center;
+  margin-top: 18px;
+}
+.qr-area img {
+  max-width: 180px;
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .top-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 10px;
+  }
+  nav {
+    justify-content: flex-start;
+    gap: 16px;
+    margin: 8px 0 0 0;
+  }
+  .profile-section {
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+}
+@media (max-width: 650px) {
+  .event-card, .volunteer-card { min-width: 140px; padding: 10px; }
+  .scroll-arrow { right: 2px; top: 6px; width: 36px; height: 36px; font-size: 1.1rem; }
+  .modal-content {
+    padding: 14px 7px 18px 7px;
+  }
+}
+/* Style for Add Your Event button */
+#addEventBtn {
+  background-color: #0764e3;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-left: 20px;
+}
+#addEventBtn:hover {
+  background-color: #0a47be;
+}
+
+/* Style for admin panel buttons inside profile dropdown */
+#adminPanelBtn {
+  background-color: #ffcc00;
+  color: #333;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  padding: 9px 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add margin to event requests list */
+#eventRequestsList > div {
+  margin-bottom: 12px;
+}
+
+/* Smaller buttons inside modal event request approval */
+#eventRequestsList button {
+  margin-right: 8px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+/* Show/hide price input based on paid event selection */
+#priceLabel {
+  margin-top: 8px;
+  display: none;
+}
+
+/* Override modal-content max height for the admin panel if many requests */
+#modalContent {
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+/* Optional: Scroll styling */
+.events-list::-webkit-scrollbar,
+.volunteers-list::-webkit-scrollbar,
+#eventRequestsList::-webkit-scrollbar {
+  height: 8px;
+}
+.events-list::-webkit-scrollbar-thumb,
+.volunteers-list::-webkit-scrollbar-thumb,
+#eventRequestsList::-webkit-scrollbar-thumb {
+  background-color: rgba(7,100,227,0.3);
+  border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 650px) {
+  #addEventBtn {
+    margin: 12px 0 10px 0;
+    width: 100%;
+    font-size: 1rem;
+  }
+  #eventRequestsList > div {
+    min-width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+.profile-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.profile-dropdown {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(20,60,120,0.11);
+  padding: 18px 16px 13px 16px;
+  min-width: 250px;
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.profile-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+}
+.profile-dropdown button {
+  background: #0764e3;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 8px;
+  padding: 8px 0;
+  width: 100%;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.profile-dropdown .btn-danger {
+  background: #ed5151;
+}
+.profile-dropdown .btn-danger:hover {
+  background: #cc4444;
+}
+.profile-dropdown button:hover:not(.btn-danger) {
+  background: #0a47be;
+  color: #fff;
+}
+
+.for-you-bar {
+  display: flex;
+  align-items: center;
+  background: #f5f2fa;
+  border-radius: 18px;
+  margin: 26px 38px 8px 38px;
+  padding: 10px 18px 10px 21px;
+  justify-content: flex-start;
+  gap: 17px;
+  font-size: 1.05rem;
+}
+.for-you-location {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}

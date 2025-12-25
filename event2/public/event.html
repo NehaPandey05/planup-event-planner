@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Events - PlanUp</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-card">
+    <h2>Available Events</h2>
+    <div id="eventsList"></div>
+    <button onclick="goDashboard()" style="margin-top: 16px;">Go to Dashboard</button>
+    <div id="qrSection" style="margin-top: 20px; display: none;">
+      <h3>Scan & Pay</h3>
+      <img 
+        id="qrImage"
+        src=""
+        alt="Scan to pay to PlanUp"
+        style="width:200px; height:200px; border:1px solid #ccc;"
+      />
+      <div id="upiLinkText" style="margin-top:8px;"></div>
+      <button id="closeQrBtn" style="margin-top:12px;">Close QR</button>
+    </div>
+  </div>
+  <script src="event.js"></script>
+</body>
+</html>

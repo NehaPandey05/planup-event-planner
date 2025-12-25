@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PlanUp Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-card">
+    <h2>Sign Up for PlanUp</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Email" required autocomplete="email">
+      <input type="password" id="password" placeholder="Password" required autocomplete="new-password">
+      <button type="submit">Register</button>
+    </form>
+    <p>
+  Already have an account?
+  <a href="login.html">Login here</a>
+</p>
+
+    <div class="error" id="errorMsg"></div>
+  </div>
+  <script src="register.js"></script>
+</body>
+</html>

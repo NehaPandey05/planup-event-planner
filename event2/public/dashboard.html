@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PlanUp - Events & Volunteer</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="top-header">
+    <div class="header-section logo-section">
+      <span class="brand-main">P L A N U P</span>
+      <span class="brand-sub">event & volunteer hub</span>
+    </div>
+    <nav class="header-section nav-section">
+      <button id="addEventBtn" class="btn-submit" style="margin-left: 20px;">Add Your Event</button>
+      <a href="#" class="nav-active" data-tab="dashboard">Dashboard</a>
+      <a href="#" data-tab="events">Events</a>
+      <a href="#" data-tab="volunteer">Volunteer</a>
+    </nav>
+    <div class="search-profile">
+      <input type="text" id="searchInput" placeholder="Search events or volunteers..." />
+    </div>
+    <div class="header-section profile-section" tabindex="0" aria-label="User profile menu">
+      <span id="profileIcon" aria-haspopup="true" aria-expanded="false" role="button">👤</span>
+      <div id="profileDropdown" class="profile-dropdown" aria-hidden="true">
+        <p id="profileNameLabel">User Name</p>
+        <p class="email" id="profileEmailLabel">user@example.com</p>
+        <button id="myEventsBtn" class="btn">My Event History</button>
+        <button id="editProfileBtn" class="btn">Edit Profile</button>
+        <button id="logoutBtn" class="btn-danger">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- "For You" Bar (only local events) -->
+  <div class="for-you-bar" id="forYouBar" style="display:none;">
+  <span class="for-you-location" id="forYouLoc">
+    <span style="color:#875fd2;font-size:1.1rem;vertical-align:middle;">📍</span>
+    <span id="forYouCity" style="font-weight:600;">Your City</span>
+    <span id="forYouState" style="display:inline-block;margin-left:8px;color:#a0a3b9;">Your State</span>
+  </span>
+</div>
+
+  <main>
+ <section class="events-section" id="eventsSection">
+ <h2 id="eventsSectionTitle">Events Near You</h2>
+<div class="events-list" id="eventsList"></div>
+<button class="scroll-arrow" id="eventsRight" aria-label="Scroll Events Right" title="Scroll right">➡️</button>
+</section>
+<section class="other-events-section" id="otherEventsSection">
+ <h2>Other Events</h2>
+ <div class="events-list" id="otherEventsList"></div>
+ </section>
+ <section class="volunteers-section" id="volunteersSection">
+ <h2>Volunteer Opportunities</h2>
+ <div class="volunteers-list" id="volunteersList"></div>
+ <button class="scroll-arrow" id="volunteersRight" aria-label="Scroll Volunteers Right" title="Scroll right">➡️</button>
+ </section>
+</main>
+
+
+  <footer>
+    <p>Be part of something bigger. – PlanUp</p>
+  </footer>
+
+  <div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div id="modalContent" class="modal-content"></div>
+  </div>
+  <div id="locationModal" style="display:none; position:fixed; z-index:1001; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.30); align-items:center; justify-content:center;">
+  <div style="background:#fff; padding:32px 26px; border-radius:14px; max-width:330px; margin:auto;">
+    <h2>Select Your City</h2>
+    <select id="locationSelect" style="width:100%; margin:18px 0;">
+      <option value="">-- Select --</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Pune">Pune</option>
+      <option value="Chennai">Chennai</option>
+    </select>
+    <button id="saveLocationBtn" style="width:100%; background:#0764e3; color:#fff; border:none; padding:10px; border-radius:7px;">Save</button>
+  </div>
+</div>
+
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
